@@ -1,0 +1,95 @@
+﻿<Window x:Class="WPF_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_App"
+        xmlns:models="clr-namespace:WPF_App.Models"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        MinHeight="510"
+        MinWidth="800"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--HomePage-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--HomePage Left-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="All Contacts" FontSize="18" FontWeight="DemiBold" Margin="40 20 40 20"/>
+
+            <ListView Name="Lv_Contacts" Margin="40 0 40 0" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="models:Contact">
+                        <StackPanel Margin="0 5 0 5">
+                            <TextBlock FontWeight="SemiBold" Text="{Binding DisplayName}"/>
+                            <TextBlock Text="{Binding Email}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Button Name="Btn_Add" Click="Btn_Add_Click" Grid.Row="2" VerticalAlignment="Bottom" Content="Add New Contact" Padding="7" Margin="40 20 40 10"/>
+        </Grid>
+
+
+        <!--HomePage Right-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <StackPanel Margin="40 20 40 0" Grid.Row="0">
+                <TextBlock Text="Contact Specifics" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 20"/>
+                
+                <TextBlock Text="First Name:"/>
+                <TextBox Name="tb_FirstName" Margin="0 2 0 10" Padding="3"/>
+
+                <TextBlock Text="Last Name:"/>
+                <TextBox Name="tb_LastName" Margin="0 2 0 10" Padding="3"/>
+
+                <TextBlock Text="Email Adress:"/>
+                <TextBox Name="tb_Email" Margin="0 2 0 10" Padding="3"/>
+
+                <TextBlock Text="Phone Number:"/>
+                <TextBox Name="tb_Phone" Margin="0 2 0 10" Padding="3"/>
+
+                <TextBlock Text="Street Name:"/>
+                <TextBox Name="tb_Street" Margin="0 2 0 10" Padding="3"/>
+
+                <TextBlock Text="Zip Code:"/>
+                <TextBox Name="tb_ZipCode" Margin="0 2 0 10" Padding="3"/>
+
+                <TextBlock Text="City:"/>
+                <TextBox Name="tb_City" Margin="0 2 0 10" Padding="3"/>
+            </StackPanel>
+
+
+            <Grid Grid.Row="1"  Margin="40 0 40 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!--<Button Name="Btn_Delete" Click="Btn_Delete_Click" Grid.Row="1" Grid.Column="0" Content="Delete" VerticalAlignment="Bottom" Padding="7"/>-->
+                <Button Name="Btn_Edit" Click="Btn_Edit_Click" Grid.Row="1" Grid.Column="2" Content="Edit" VerticalAlignment="Bottom" Padding="7"/>
+            </Grid>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

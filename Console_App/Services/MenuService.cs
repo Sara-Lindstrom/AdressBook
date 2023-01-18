@@ -62,7 +62,7 @@ internal class MenuService
                 
                 foreach (Contact contact in contacts)
                 {
-                    Console.WriteLine($"{contact.FirstName}, {contact.LastName}\n{contact.Email}\n{contact.Phone}\n{contact.Adress}\n");
+                    Console.WriteLine($"{contact.FirstName}, {contact.LastName}\n{contact.Email}\n");
                 }
                 Console.ReadKey();
 

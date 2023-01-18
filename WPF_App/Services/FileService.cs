@@ -8,7 +8,7 @@ internal class FileService
 {
     private string FilePath = @$"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
 
-    // Save contact to Json-file 
+    // Save contact to Json-file on desktop
     public void Save(string fileContent)
     {
         using var sw = new StreamWriter(FilePath);

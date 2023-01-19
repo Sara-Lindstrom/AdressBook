@@ -95,26 +95,26 @@ internal class MenuService
 
             Console.WriteLine("Add New Contact\n");
             Console.Write("First Name: ");
-            contact.FirstName = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.FirstName = Console.ReadLine()!.ToLower() ?? "Unknown";
             Console.Write("Last Name: ");
-            contact.LastName = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.LastName = Console.ReadLine()!.ToLower() ?? "Unknown";
             Console.Write("Email: ");
-            contact.Email = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.Email = Console.ReadLine()!.ToLower() ?? "Unknown";
             Console.Write("Phone Number: ");
-            contact.Phone = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.Phone = Console.ReadLine()!.ToLower() ?? "Unknown";
             Console.Write("Street Name: ");
-            contact.Street = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.Street = Console.ReadLine()!.ToLower() ?? "Unknown";
             Console.Write("Zip Code: ");
-            contact.ZipCode = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.ZipCode = Console.ReadLine()!.ToLower() ?? "Unknown";
             Console.Write("City: ");
-            contact.City = Console.ReadLine().ToLower() ?? "Unknown";
+            contact.City = Console.ReadLine()!.ToLower() ?? "Unknown";
 
             // Check if input is accurate
             Console.Clear();
             Console.WriteLine("Is This Accurate?\n");
             Console.WriteLine($"{contact.FirstName}, {contact.LastName}\n{contact.Email}\n{contact.Phone}\n{contact.Adress}\n");
             Console.WriteLine("y/n:");
-            string isInputAccurate = Console.ReadLine().ToLower();
+            string isInputAccurate = Console.ReadLine()!.ToLower();
 
             // adds new contact if input is right, tries again if not.
             if (isInputAccurate == "y")
@@ -161,7 +161,7 @@ internal class MenuService
                 else
                 {
                     Console.WriteLine("\nSorry!\nWe Didn't Find Anyone With That Id.\nWould You Like To Try For Another One?\ny/n");
-                    string tryAgain = Console.ReadLine().ToLower();
+                    string tryAgain = Console.ReadLine()!.ToLower();
 
                     if (tryAgain == "y")
                     {
@@ -194,7 +194,7 @@ internal class MenuService
                 {
                     Console.WriteLine($"\n{contactFind.FirstName}, {contactFind.LastName}\n{contactFind.Email}\n{contactFind.Phone}\n{contactFind.Adress}\n");
                     Console.WriteLine("\nAre You Sure You Whant To Remove This Contact Forever (A Very Long Time)\ny/n");
-                    string removeChoice = Console.ReadLine().ToLower();
+                    string removeChoice = Console.ReadLine()!.ToLower();
 
                     if (removeChoice == "y")
                     {
@@ -211,7 +211,7 @@ internal class MenuService
                 else
                 {
                     Console.WriteLine("\nSorry!\nWe Didn't Find Anyone With That Id.\nWould You Like To Try For Another One?\ny/n");
-                    string tryAgain = Console.ReadLine().ToLower();
+                    string tryAgain = Console.ReadLine()!.ToLower();
 
                     if (tryAgain == "y")
                     {

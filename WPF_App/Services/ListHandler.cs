@@ -1,39 +1,37 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using WPF_App.Models;
+using WPF_App.Mvvm.Models;
 
 namespace WPF_App.Services;
 
-internal class ListHandler
+public static class ListHandler
 {
-    private ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
-    private FileService file = new FileService(); 
+    private static ObservableCollection<ContactModel> contacts;
+    private static FileService file;
 
-    public ListHandler()
+    static ListHandler()
     {
         GetAllContacts();
+        file = new FileService();
+        contacts = file.Read();
     }
 
 
-    public void ContactAdd(Contact contact)
+    public static void ContactAdd(ContactModel contact)
     {
         contacts.Add(contact);
         file.Save(JsonConvert.SerializeObject(contacts, Formatting.Indented));
     }
 
-
-    public ObservableCollection<Contact> GetAllContacts()
+    public static void ContactRemove(ContactModel contact)
     {
-        try
-        {
-            var items = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(file.Read());
+        contacts.Remove(contact);
+        file.Save(JsonConvert.SerializeObject(contacts, Formatting.Indented));
 
-            if (items != null)
-            {
-                contacts = items;
-            }
-        }
-        catch { }
+    }
+
+    public static ObservableCollection<ContactModel> GetAllContacts()
+    {
         return contacts;
     }
 }

@@ -1,6 +1,9 @@
 ﻿
+using Newtonsoft.Json;
 using System;
+using System.Collections.ObjectModel;
 using System.IO;
+using WPF_App.Mvvm.Models;
 
 namespace WPF_App.Services;
 
@@ -16,13 +19,13 @@ internal class FileService
     }
 
     // finds and reads Json-file
-    public string Read()
+    public ObservableCollection<ContactModel> Read()
     {
         try
         {
             using var sr = new StreamReader(FilePath);
-            return sr.ReadToEnd();
+            return JsonConvert.DeserializeObject<ObservableCollection<ContactModel>>(sr.ReadToEnd())!;
         }
-        catch { return null!; }
+        catch { return new ObservableCollection<ContactModel>();}
     }
 }

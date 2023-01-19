@@ -4,92 +4,87 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_App"
-        xmlns:models="clr-namespace:WPF_App.Models"
+        xmlns:models="clr-namespace:WPF_App.Mvvm.Models"
+        xmlns:ViewModels="clr-namespace:WPF_App.Mvvm.VievModels"
+        xmlns:View="clr-namespace:WPF_App.Mvvm.Views"
+        d:DataContext="{d:DesignInstance Type=ViewModels:MainViewModel}"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
-        MinHeight="510"
+        MinHeight="570"
         MinWidth="800"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="570" Width="800">
     <Grid>
-        <!--HomePage-->
+        <!--Page-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Page Upper Menu-->
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
 
-        <!--HomePage Left-->
-        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Command="{Binding GoToSpecificContactCommand}" Grid.Column="0" VerticalAlignment="Bottom" Content="Home Page" Padding="7" Margin="10 10 10 10" Background="#d3eaf5" BorderBrush="#8abad1"/>
+            <Button Command="{Binding GoToAddContactCommand}" Grid.Column="1" VerticalAlignment="Bottom" Content="New Contact Page" Padding="7" Margin="10 10 10 10" Background="#d3eaf5" BorderBrush="#8abad1"/>
+        </Grid>
+
+
+        <!--Page Left-->
+        <Grid Grid.Column="0" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="All Contacts" FontSize="18" FontWeight="DemiBold" Margin="40 20 40 20"/>
+            <TextBlock Grid.Row="0" Text="All Contacts" FontSize="18" FontWeight="DemiBold" Margin="25 20 20 20"/>
 
-            <ListView Name="Lv_Contacts" Margin="40 0 40 0" Grid.Row="1">
+            <ListView ItemsSource="{Binding Contactlist}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:Contact">
-                        <StackPanel Margin="0 5 0 5">
-                            <TextBlock FontWeight="SemiBold" Text="{Binding DisplayName}"/>
-                            <TextBlock Text="{Binding Email}"/>
+                        <StackPanel Width="300" Margin="0 5 5 5">
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock FontWeight="SemiBold" Text="{Binding DisplayName}"/>
+                                    <TextBlock Text="{Binding Email}"/>
+                                </StackPanel>
+
+                                <Button Grid.Column="1" VerticalAlignment="Center" Content="Edit" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1"/>
+                                <Button Click="Btn_Remove_Click" Name="Btn_Remove" Grid.Column="2" VerticalAlignment="Center" Content="Remove" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1"/>
+                                                        
+                            </Grid>                            
                         </StackPanel>
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button Name="Btn_Add" Click="Btn_Add_Click" Grid.Row="2" VerticalAlignment="Bottom" Content="Add New Contact" Padding="7" Margin="40 20 40 10"/>
         </Grid>
 
-
-        <!--HomePage Right-->
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-
-            <StackPanel Margin="40 20 40 0" Grid.Row="0">
-                <TextBlock Text="Contact Specifics" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 20"/>
-                
-                <TextBlock Text="First Name:"/>
-                <TextBox Name="tb_FirstName" Margin="0 2 0 10" Padding="3"/>
-
-                <TextBlock Text="Last Name:"/>
-                <TextBox Name="tb_LastName" Margin="0 2 0 10" Padding="3"/>
-
-                <TextBlock Text="Email Adress:"/>
-                <TextBox Name="tb_Email" Margin="0 2 0 10" Padding="3"/>
-
-                <TextBlock Text="Phone Number:"/>
-                <TextBox Name="tb_Phone" Margin="0 2 0 10" Padding="3"/>
-
-                <TextBlock Text="Street Name:"/>
-                <TextBox Name="tb_Street" Margin="0 2 0 10" Padding="3"/>
-
-                <TextBlock Text="Zip Code:"/>
-                <TextBox Name="tb_ZipCode" Margin="0 2 0 10" Padding="3"/>
-
-                <TextBlock Text="City:"/>
-                <TextBox Name="tb_City" Margin="0 2 0 10" Padding="3"/>
-            </StackPanel>
-
-
-            <Grid Grid.Row="1"  Margin="40 0 40 10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <!--<Button Name="Btn_Delete" Click="Btn_Delete_Click" Grid.Row="1" Grid.Column="0" Content="Delete" VerticalAlignment="Bottom" Padding="7"/>-->
-                <Button Name="Btn_Edit" Click="Btn_Edit_Click" Grid.Row="1" Grid.Column="2" Content="Edit" VerticalAlignment="Bottom" Padding="7"/>
-            </Grid>
-        </Grid>
-
-
-
+        <!--Page Right-->
+        <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type ViewModels:ContactsViewModel}">
+                    <View:ContactsView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type ViewModels:AddContactViewModel}">
+                    <View:AddContactView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </Window>

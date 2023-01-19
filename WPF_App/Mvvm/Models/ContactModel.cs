@@ -2,9 +2,9 @@
 using System;
 using WPF_App.Intefaces;
 
-namespace WPF_App.Models;
+namespace WPF_App.Mvvm.Models;
 
-internal class Contact : IContact
+public class ContactModel : IContact
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public string FirstName { get; set; } = null!;

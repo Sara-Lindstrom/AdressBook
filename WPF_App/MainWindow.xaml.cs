@@ -1,5 +1,8 @@
 ﻿
+using System.CodeDom;
 using System.Windows;
+using System.Windows.Controls;
+using WPF_App.Mvvm.Models;
 using WPF_App.Services;
 
 namespace WPF_App;
@@ -9,33 +12,29 @@ namespace WPF_App;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private ListHandler listHandler;
 
     public MainWindow()
     {
         InitializeComponent();
-        listHandler = new ListHandler();
-        populateContacts();
     }
 
-    public void populateContacts ()
-    {
-        Lv_Contacts.ItemsSource = listHandler.GetAllContacts();
-    }
+    private void Btn_Remove_Click(object sender, RoutedEventArgs e)
+    {        
+        var removeButton = sender as Button;
+        var item = (ContactModel)removeButton!.DataContext;
 
-    private void Btn_Add_Click(object sender, RoutedEventArgs e)
-    {
-        AddContact addContactWindow = new AddContact();
-        addContactWindow.ShowDialog();
-    }
+        string messageBoxText = $"Are you sure you Want to remove {item.DisplayName} from your contacts?";
+        string caption = "Delete Warning";
+        
+        MessageBoxButton button = MessageBoxButton.YesNo;
+        MessageBoxImage icon = MessageBoxImage.Warning;
+        MessageBoxResult result;
 
-    private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
-    {
+        result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
 
-    }
-
-    private void Btn_Edit_Click(object sender, RoutedEventArgs e)
-    {
-
+        if (result == MessageBoxResult.Yes)
+        {
+            ListHandler.ContactRemove(item);
+        }
     }
 }

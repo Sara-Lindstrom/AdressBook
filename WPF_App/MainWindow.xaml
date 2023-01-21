@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_App"
         xmlns:models="clr-namespace:WPF_App.Mvvm.Models"
         xmlns:ViewModels="clr-namespace:WPF_App.Mvvm.VievModels"
-        xmlns:View="clr-namespace:WPF_App.Mvvm.Views"
+        xmlns:View="clr-namespace:WPF_App.Mvvm.Views" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         d:DataContext="{d:DesignInstance Type=ViewModels:MainViewModel}"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
@@ -47,7 +47,12 @@
 
             <TextBlock Grid.Row="0" Text="All Contacts" FontSize="18" FontWeight="DemiBold" Margin="25 20 20 20"/>
 
-            <ListView ItemsSource="{Binding Contactlist}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1">
+            <ListView ItemsSource="{Binding Contactlist}" SelectedItem="{Binding SelectedContact}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding GoToSpecificContactCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:Contact">
                         <StackPanel Width="300" Margin="0 5 5 5">

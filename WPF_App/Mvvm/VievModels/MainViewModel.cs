@@ -20,6 +20,9 @@ public partial class MainViewModel : ObservableObject
     private string displayName;
 
     [ObservableProperty]
+    private ContactModel selectedContact;
+
+    [ObservableProperty]
     private string email;
 
     [RelayCommand]
@@ -31,7 +34,7 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void GoToSpecificContact()
     {
-        CurrentViewModel = new ContactsViewModel();
+        CurrentViewModel = new ContactsViewModel(SelectedContact);
     }
 
     public MainViewModel()

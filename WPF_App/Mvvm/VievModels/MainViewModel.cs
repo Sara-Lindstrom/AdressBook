@@ -37,6 +37,12 @@ public partial class MainViewModel : ObservableObject
         CurrentViewModel = new ContactsViewModel(SelectedContact);
     }
 
+    [RelayCommand]
+    private void GoToEditContact()
+    {
+        CurrentViewModel = new EditContactViewModel();
+    }
+
     public MainViewModel()
     {
         CurrentViewModel = new ContactsViewModel();

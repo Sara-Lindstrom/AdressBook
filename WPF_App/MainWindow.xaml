@@ -7,7 +7,7 @@
         xmlns:models="clr-namespace:WPF_App.Mvvm.Models"
         xmlns:ViewModels="clr-namespace:WPF_App.Mvvm.VievModels"
         xmlns:View="clr-namespace:WPF_App.Mvvm.Views" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        d:DataContext="{d:DesignInstance Type=ViewModels:MainViewModel}"
+         d:DataContext="{d:DesignInstance Type=ViewModels:MainViewModel}"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
         MinHeight="570"
@@ -39,7 +39,7 @@
 
 
         <!--Page Left-->
-        <Grid Grid.Column="0" Grid.Row="1">
+        <Grid Grid.Column="0" Grid.Row="1" Name="Root">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
@@ -69,7 +69,13 @@
                                     <TextBlock Text="{Binding Email}"/>
                                 </StackPanel>
 
-                                <Button Command="{Binding GoToEditContactCommand}" Grid.Column="1" VerticalAlignment="Center" Content="Edit" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1"/>
+                                <Button Name="EditContact" Grid.Column="1" VerticalAlignment="Center" Content="Edit" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                            <i:InvokeCommandAction Command="{Binding Path=DataContext.GoToEditContactCommand, ElementName=Root}" CommandParameter="{Binding .}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                                 <Button Click="Btn_Remove_Click" Name="Btn_Remove" Grid.Column="2" VerticalAlignment="Center" Content="Remove" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1"/>
                                                         
                             </Grid>                            

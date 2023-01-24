@@ -8,13 +8,13 @@ namespace WPF_App.Mvvm.VievModels
     internal partial class EditContactViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string pageTitle = "Edit Contact";
+        private string pageName = "Edit Contact";
 
         [ObservableProperty]
-        private string firstName = string.Empty;
+        private string firstname = string.Empty;
 
         [ObservableProperty]
-        private string lastName = string.Empty;
+        private string lastname = string.Empty;
 
         [ObservableProperty]
         private string email = string.Empty;
@@ -30,5 +30,21 @@ namespace WPF_App.Mvvm.VievModels
 
         [ObservableProperty]
         private string city = string.Empty;
+
+        public EditContactViewModel(ContactModel selectedContact)
+        {
+            Firstname = selectedContact.FirstName;
+            Lastname = selectedContact.LastName;
+            Email = selectedContact.Email;
+            Phone = selectedContact.Phone;
+            Street = selectedContact.Street;
+            ZipCode = selectedContact.ZipCode;
+            City = selectedContact.City;
+        }
+
+        public EditContactViewModel()
+        {
+
+        }
     }
 }

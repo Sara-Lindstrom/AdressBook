@@ -15,31 +15,31 @@
         <StackPanel Margin="40 20 40 0" Grid.Row="0" Grid.Column="1">
             <TextBlock Text="{Binding PageTitle}" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 15"/>
 
-            <TextBlock Text="First Name:"/>
+            <TextBlock Text="First Name:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding FirstName}" Name="tb_FirstName" Margin="0 2 0 10" Padding="3"/>
 
-            <TextBlock Text="Last Name:"/>
+            <TextBlock Text="Last Name:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding LastName}" Name="tb_LastName" Margin="0 2 0 10" Padding="3"/>
 
-            <TextBlock Text="Email Adress:"/>
+            <TextBlock Text="Email Adress:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding Email}" Name="tb_Email" Margin="0 2 0 10" Padding="3"/>
 
-            <TextBlock Text="Phone Number:"/>
+            <TextBlock Text="Phone Number:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding Phone}" Name="tb_Phone" Margin="0 2 0 10" Padding="3"/>
 
-            <TextBlock Text="Street Name:"/>
+            <TextBlock Text="Street Name:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding Street}" Name="tb_Street" Margin="0 2 0 10" Padding="3"/>
 
-            <TextBlock Text="Zip Code:"/>
+            <TextBlock Text="Zip Code:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding ZipCode}" Name="tb_ZipCode" Margin="0 2 0 10" Padding="3"/>
 
-            <TextBlock Text="City:"/>
+            <TextBlock Text="City:" FontWeight="DemiBold"/>
             <TextBox Text="{Binding City}" Name="tb_City" Margin="0 2 0 10" Padding="3"/>
         </StackPanel>
 
 
         <Grid Grid.Row="1" Margin="40 0 40 10">
-            <Button Name="Btn_Add" Command="{Binding AddNewContactCommand}" Grid.Column="0" Content="Add" VerticalAlignment="Bottom" Padding="10"/>
+            <Button Name="Btn_Add" Command="{Binding AddNewContactCommand}" Grid.Column="0" Content="Add" VerticalAlignment="Bottom" Padding="10" Background="#d3eaf5" BorderBrush="#8abad1"/>
         </Grid>
     </Grid>
 </UserControl>

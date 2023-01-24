@@ -19,26 +19,26 @@
             <StackPanel Margin="40 20 40 0" Grid.Row="0">
                 <TextBlock Text="{Binding PageName}" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 15"/>
 
-                <TextBlock Text="First Name:"/>
-                <TextBlock Text="{Binding Firstname}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="First Name:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding Firstname}" Margin="0 2 0 10" Padding="0 3 0 5"/>
 
-                <TextBlock Text="Last Name:"/>
-                <TextBlock Text="{Binding Lastname}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="Last Name:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding Lastname}" Margin="0 2 0 10" Padding="0 3 0 5"/>
 
-                <TextBlock Text="Email Adress:"/>
-                <TextBlock Text="{Binding Email}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="Email Adress:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding Email}" Margin="0 2 0 10" Padding="0 3 0 5"/>
 
-                <TextBlock Text="Phone Number:"/>
-                <TextBlock Text="{Binding Phone}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="Phone Number:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding Phone}" Margin="0 2 0 10" Padding="0 3 0 5"/>
 
-                <TextBlock Text="Street Name:"/>
-                <TextBlock Text="{Binding Street}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="Street Name:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding Street}" Margin="0 2 0 10" Padding="0 3 0 5"/>
 
-                <TextBlock Text="Zip Code:"/>
-                <TextBlock Text="{Binding ZipCode}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="Zip Code:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding ZipCode}" Margin="0 2 0 10" Padding="0 3 0 5"/>
 
-                <TextBlock Text="City:"/>
-                <TextBlock Text="{Binding City}" Margin="0 2 0 10" Padding="3"/>
+                <TextBlock Text="City:" FontWeight="DemiBold"/>
+                <TextBlock Text="{Binding City}" Margin="0 2 0 10" Padding="0 3 0 5"/>
             </StackPanel>
 
 

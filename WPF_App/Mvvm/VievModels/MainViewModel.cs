@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using System.Linq;
 using WPF_App.Mvvm.Models;
 using WPF_App.Services;
 
@@ -34,13 +35,29 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void GoToSpecificContact()
     {
-        CurrentViewModel = new ContactsViewModel(SelectedContact);
+        if (SelectedContact != null)
+        {
+            CurrentViewModel = new ContactsViewModel(SelectedContact);
+        }
+        else
+        {
+            CurrentViewModel = new ContactsViewModel();
+        }
     }
 
     [RelayCommand]
-    private void GoToEditContact()
+    private void GoToEditContact(object sender)
     {
-        CurrentViewModel = new EditContactViewModel();
+        var contact = sender as ContactModel;
+
+        if (contact != null)
+        {
+            CurrentViewModel = new EditContactViewModel(contact);
+        }
+        else
+        {
+            CurrentViewModel = new EditContactViewModel();
+        }
     }
 
     public MainViewModel()

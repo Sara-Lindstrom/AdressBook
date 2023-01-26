@@ -47,15 +47,15 @@
 
             <TextBlock Grid.Row="0" Text="All Contacts" FontSize="18" FontWeight="DemiBold" Margin="25 20 20 20"/>
 
-            <ListView ItemsSource="{Binding Contactlist}" SelectedItem="{Binding SelectedContact}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1">
+            <ListView ItemsSource="{Binding Contactlist}" SelectedItem="{Binding SelectedContact}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1" HorizontalContentAlignment="Stretch">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding GoToSpecificContactCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <ListView.ItemTemplate>
-                    <DataTemplate DataType="models:Contact">
-                        <StackPanel Width="300" Margin="0 5 5 5">
+                    <DataTemplate DataType="models:ContactModel">
+                        <StackPanel Margin="0 5 5 5">
                             <Grid>
 
                                 <Grid.ColumnDefinitions>

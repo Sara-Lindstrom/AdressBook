@@ -5,10 +5,10 @@ using System.Collections.ObjectModel;
 
 namespace Console_App.Services;
 
-internal class MenuService
+public class MenuService
 {
     //StartUp
-    private ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
+    public ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
     private readonly FileService file = new FileService();
 
     public MenuService()

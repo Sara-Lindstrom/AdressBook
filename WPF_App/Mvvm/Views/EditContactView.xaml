@@ -13,30 +13,30 @@
             <TextBlock Text="{Binding PageName}" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 15"/>
 
             <TextBlock Text="First Name:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding Firstname}" Name="tb_FirstName" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding FirstName}" Margin="0 2 0 10" Padding="3"/>
 
             <TextBlock Text="Last Name:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding Lastname}" Name="tb_LastName" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding LastName}" Margin="0 2 0 10" Padding="3"/>
 
             <TextBlock Text="Email Adress:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding Email}" Name="tb_Email" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding Email}" Margin="0 2 0 10" Padding="3"/>
 
             <TextBlock Text="Phone Number:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding Phone}" Name="tb_Phone" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding Phone}" Margin="0 2 0 10" Padding="3"/>
 
             <TextBlock Text="Street Name:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding Street}" Name="tb_Street" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding Street}" Margin="0 2 0 10" Padding="3"/>
 
             <TextBlock Text="Zip Code:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding ZipCode}" Name="tb_ZipCode" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding ZipCode}" Margin="0 2 0 10" Padding="3"/>
 
             <TextBlock Text="City:" FontWeight="DemiBold"/>
-            <TextBox Text="{Binding City}" Name="tb_City" Margin="0 2 0 10" Padding="3"/>
+            <TextBox Text="{Binding City}" Margin="0 2 0 10" Padding="3"/>
         </StackPanel>
 
 
         <Grid Grid.Row="1" Margin="40 0 40 10">
-            <Button Name="Btn_Add" Command="" Grid.Column="0" Content="Save" VerticalAlignment="Bottom" Padding="10" Background="#d3eaf5" BorderBrush="#8abad1"/>
+            <Button Name="Btn_Edit" Command="{Binding SaveUpdatedContactCommand}" Grid.Column="0" Content="Save" VerticalAlignment="Bottom" Padding="10" Background="#d3eaf5" BorderBrush="#8abad1"/>
         </Grid>
     </Grid>
 </UserControl>

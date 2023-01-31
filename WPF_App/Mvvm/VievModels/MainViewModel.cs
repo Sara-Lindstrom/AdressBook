@@ -9,7 +9,7 @@ using WPF_App.Services;
 namespace WPF_App.Mvvm.VievModels;
 
 public partial class MainViewModel : ObservableObject
-{
+{ 
 
     [ObservableProperty]
     private ObservableObject currentViewModel;

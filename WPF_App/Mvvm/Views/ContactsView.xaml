@@ -16,8 +16,8 @@
             </Grid.RowDefinitions>
 
 
-            <StackPanel Margin="40 20 40 0" Grid.Row="0">
-                <TextBlock Text="{Binding PageName}" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 15"/>
+            <StackPanel Margin="20 20 40 0" Grid.Row="0">
+                <TextBlock Text="{Binding PageName}" FontSize="18" FontWeight="DemiBold" Margin="0 0 0 27"/>
 
                 <TextBlock Text="First Name:" FontWeight="DemiBold"/>
                 <TextBlock Text="{Binding Firstname}" Margin="0 2 0 10" Padding="0 3 0 5"/>
@@ -48,9 +48,6 @@
                     <ColumnDefinition Width="40"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
-                <!--<Button Name="Btn_Delete" Click="Btn_Delete_Click" Grid.Row="1" Grid.Column="0" Content="Delete" VerticalAlignment="Bottom" Padding="7"/>-->
-                <!--<Button Name="Btn_Edit" Click="Btn_Edit_Click" Grid.Row="1" Grid.Column="2" Content="Edit" VerticalAlignment="Bottom" Padding="7"/>-->
             </Grid>
         </Grid>
     </Grid>

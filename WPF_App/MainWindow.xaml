@@ -16,30 +16,19 @@
     <Grid>
         <!--Page-->
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <!--Page Upper Menu-->
-        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+        <!--Menu Left-->
+        <StackPanel Grid.Column="0" Margin="20 10 0 0 " Orientation="Vertical">
+            <Button Command="{Binding GoToSpecificContactCommand}" Grid.Column="0" Content="&#xf4c9;" Style="{StaticResource navButton}"/>
+            <Button Command="{Binding GoToAddContactCommand}" Grid.Column="1" Content="&#xf234;" Style="{StaticResource navButton}"/>
+        </StackPanel>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button Command="{Binding GoToSpecificContactCommand}" Grid.Column="0" VerticalAlignment="Bottom" Content="Home Page" Padding="7" Margin="10 10 10 10" Background="#d3eaf5" BorderBrush="#8abad1"/>
-            <Button Command="{Binding GoToAddContactCommand}" Grid.Column="1" VerticalAlignment="Bottom" Content="New Contact Page" Padding="7" Margin="10 10 10 10" Background="#d3eaf5" BorderBrush="#8abad1"/>
-        </Grid>
-
-
-        <!--Page Left-->
-        <Grid Grid.Column="0" Grid.Row="1" Name="Root">
+            <!--Page Middle-->
+        <Grid Grid.Column="1" Name="Root">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
@@ -47,7 +36,8 @@
 
             <TextBlock Grid.Row="0" Text="All Contacts" FontSize="18" FontWeight="DemiBold" Margin="25 20 20 20"/>
 
-            <ListView ItemsSource="{Binding Contactlist}" SelectedItem="{Binding SelectedContact}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1" HorizontalContentAlignment="Stretch">
+            <ListView ItemsSource="{Binding Contactlist}" SelectedItem="{Binding SelectedContact}" BorderThickness="0" Margin="20 0 20 40" Grid.Row="1" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListViewItemStyle}" > 
+                <!--NuGet: Microsoft.Xaml.Behaviors.Wpf-->
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding GoToSpecificContactCommand}"/>
@@ -69,25 +59,25 @@
                                     <TextBlock Text="{Binding Email}"/>
                                 </StackPanel>
 
-                                <Button Name="EditContact" Grid.Column="1" VerticalAlignment="Center" Content="Edit" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1">
+                                <!--https://stackoverflow.com/questions/19646469/how-can-i-bind-a-button-in-listviewitem-to-a-command-in-viewmodel-in-winrt-->
+                                <Button Name="EditContact" Grid.Column="1" VerticalAlignment="Center"  Content="&#xf4ff;" Style="{StaticResource handlerButton}">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                             <i:InvokeCommandAction Command="{Binding Path=DataContext.GoToEditContactCommand, ElementName=Root}" CommandParameter="{Binding .}"/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
-                                <Button Click="Btn_Remove_Click" Name="Btn_Remove" Grid.Column="2" VerticalAlignment="Center" Content="Remove" Margin="10 10 10 10" Padding="5 2 5 2" Background="#d3eaf5" BorderBrush="#8abad1"/>
-                                                        
-                            </Grid>                            
-                        </StackPanel>
+                                <Button Click="Btn_Remove_Click" Name="Btn_Remove" Grid.Column="2" VerticalAlignment="Center"  Content="&#xf12d;" Style="{StaticResource handlerButton}"/>
 
+                            </Grid>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
 
         <!--Page Right-->
-        <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding CurrentViewModel}">
+        <ContentControl Grid.Column="2" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type ViewModels:ContactsViewModel}">
                     <View:ContactsView/>

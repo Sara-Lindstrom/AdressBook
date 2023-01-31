@@ -1,7 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows.Data;
 using WPF_App.Mvvm.Models;
+using WPF_App.Mvvm.VievModels;
 
 namespace WPF_App.Services;
 
@@ -12,7 +15,7 @@ public static class ListHandler
 
     static ListHandler()
     {
-        GetAllContacts();
+        //GetAllContacts();
         file = new FileService();
         contacts = file.Read();
     }
@@ -43,9 +46,11 @@ public static class ListHandler
 
         if (oldContact.Id == updatedContact.Id)
         {
+
             contacts.Remove(oldContact);
             contacts.Add(updatedContact);
             file.Save(JsonConvert.SerializeObject(contacts, Formatting.Indented));
+
         }
     }
 }

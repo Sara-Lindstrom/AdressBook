@@ -77,6 +77,14 @@ namespace WPF_App.Mvvm.VievModels
                 City = City,
             };
             ListHandler.ContactReplace(updatedContact);
+
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Email = string.Empty;
+            Phone = string.Empty;
+            Street = string.Empty;
+            ZipCode = string.Empty;
+            City = string.Empty;
         }
     }
 }

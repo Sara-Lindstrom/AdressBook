@@ -36,7 +36,14 @@
 
 
         <Grid Grid.Row="1">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
             <Button Name="Btn_Edit" Command="{Binding SaveUpdatedContactCommand}" Grid.Column="0" Content="Save" VerticalAlignment="Bottom" Style="{StaticResource bighandlerButton}" FontWeight="DemiBold"/>
+            <Button Name="Btn_Cancel" Command="{Binding CancelCommand}" Grid.Column="1" Content="Cancel" VerticalAlignment="Bottom" Style="{StaticResource bighandlerButton}" FontWeight="DemiBold"/>
         </Grid>
     </Grid>
 </UserControl>

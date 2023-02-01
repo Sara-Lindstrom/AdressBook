@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.IO;
+using System.Reflection.Emit;
 using WPF_App.Mvvm.Models;
 using WPF_App.Services;
 
@@ -85,6 +86,19 @@ namespace WPF_App.Mvvm.VievModels
             Street = string.Empty;
             ZipCode = string.Empty;
             City = string.Empty;
+        }
+
+        [RelayCommand]
+        private void Cancel()
+        {
+
+            FirstName = oldContact.FirstName;
+            LastName = oldContact.LastName;
+            Email = oldContact.Email;
+            Phone = oldContact.Phone;
+            Street = oldContact.Street;
+            ZipCode = oldContact.ZipCode;
+            City = oldContact.City;
         }
     }
 }

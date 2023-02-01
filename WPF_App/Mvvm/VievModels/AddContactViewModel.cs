@@ -1,6 +1,8 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.IO;
+using System.Reflection.Emit;
 using WPF_App.Mvvm.Models;
 using WPF_App.Services;
 
@@ -46,6 +48,18 @@ internal partial class AddContactViewModel : ObservableObject
             City = City,
         });
 
+        FirstName = string.Empty;
+        LastName = string.Empty;
+        Email = string.Empty;
+        Phone = string.Empty;
+        Street = string.Empty;
+        ZipCode = string.Empty;
+        City = string.Empty;
+    }
+
+    [RelayCommand]
+    private void Cancel()
+    {
         FirstName = string.Empty;
         LastName = string.Empty;
         Email = string.Empty;

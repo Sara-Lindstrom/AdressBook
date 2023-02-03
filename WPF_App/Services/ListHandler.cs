@@ -15,7 +15,6 @@ public static class ListHandler
 
     static ListHandler()
     {
-        //GetAllContacts();
         file = new FileService();
         contacts = file.Read();
     }

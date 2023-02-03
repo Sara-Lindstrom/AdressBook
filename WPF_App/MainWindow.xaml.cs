@@ -23,6 +23,7 @@ public partial class MainWindow : Window
         var removeButton = sender as Button;
         var item = (ContactModel)removeButton!.DataContext;
 
+        //pop up confirmating
         string messageBoxText = $"Are you sure you Want to remove {item.DisplayName} from your contacts?";
         string caption = "Delete Warning";
         
@@ -32,6 +33,7 @@ public partial class MainWindow : Window
 
         result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
 
+        //removing contact if yes
         if (result == MessageBoxResult.Yes)
         {
             ListHandler.ContactRemove(item);

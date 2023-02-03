@@ -3,7 +3,7 @@
 
     <FontFamily x:Key="FontAwesome-Regular">/Assets/Fonts/fa-regular-400.ttf#Font Awesome 6 Pro Regular</FontFamily>
 
-
+    <!--NAVIGATION BUTTON-->
     <Style x:Key="navButton" TargetType="Button">
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="5 10 0 5"/>
@@ -26,6 +26,7 @@
         </Setter>
     </Style>
 
+    <!--FUNCTION BUTTONS-->
     <Style x:Key="handlerButton" TargetType="Button">
         <Setter Property="Foreground" Value="#6f994b"/>
         <Setter Property="Padding" Value="5 2 5 2"/>
@@ -69,6 +70,7 @@
         </Setter>
     </Style>
 
+    <!--CONTACTS LIST-->
     <!--https://stackoverflow.com/questions/47428237/listview-items-bound-but-not-visible-wpf-->
     <!--https://stackoverflow.com/questions/18473726/how-do-you-bind-to-a-listbox-itemtemplate-in-a-styles-content-template-content-->
     <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">

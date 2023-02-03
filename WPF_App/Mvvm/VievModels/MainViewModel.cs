@@ -52,12 +52,16 @@ public partial class MainViewModel : ObservableObject
 
         if (contact != null)
         {
+            SelectedContact = contact;
             CurrentViewModel = new EditContactViewModel(contact);
         }
         else
         {
             CurrentViewModel = new EditContactViewModel();
         }
+
+
+
     }
 
     public MainViewModel()
